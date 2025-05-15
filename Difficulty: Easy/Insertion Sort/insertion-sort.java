@@ -41,17 +41,37 @@ class Main {
 
 class Solution {
     // Please change the array in-place
-    public void insertionSort(int arr[]) {
-        // code here
-        for(int i =1;i<= arr.length -1;i++){
+    // public void insertionSort(int arr[]) {
+    //     // code here
+    //     for(int i =1;i<= arr.length -1;i++){
             
-            int j =i-1;
+    //         int j =i-1;
+    //         while(j>=0 && arr[j]>arr[j+1]){
+    //           int temp = arr[j];
+    //             arr[j] = arr[j+1];
+    //             arr[j+1]=temp;
+    //             j--;
+    //         }
+    //     }
+    // }
+    
+    public void insertionSort(int arr[]){
+        insertion(arr,arr.length,0);
+    }
+    
+    
+    public void insertion(int arr[], int n, int i) {
+        // code here
+        if(i==n-1) return ;
+            
+            int j =i;
             while(j>=0 && arr[j]>arr[j+1]){
                int temp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1]=temp;
                 j--;
             }
+            insertion(arr, n, i+1);
         }
-    }
+    
 }
