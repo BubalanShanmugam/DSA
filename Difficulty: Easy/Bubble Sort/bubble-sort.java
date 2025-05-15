@@ -11,18 +11,45 @@ import java.util.*;
 
 class Solution {
     // Function to sort the array using bubble sort algorithm.
-    public static void bubbleSort(int arr[]) {
+    // public static void bubbleSort(int arr[]) {
+    //     // code here
+    //     recursive(arr,0,arr.length-1);
+    // }
+    
+    // static void recursive(int arr[], int n, int end){
+    //     if(n == end) return;
+        
+    //     for(int start = 0 ; start <= end-1 ; start++){
+    //     if(arr[start] > arr[start+1]){
+    //         int temp =arr[start];
+    //         arr[start] = arr[start+1];
+    //         arr[start+1]=temp;
+    //     }
+    //     recursive(arr,n+1,end);
+    // }
+    // }
+    
+        public static void bubbleSort(int arr[]) {
         // code here
-        int n = arr.length;
-        for(int i=n-1;i>=0;i--){
-            for(int j =0;j<=i-1;j++){
-                if(arr[j]> arr[j+1]){
-                    int temp = arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-                }
-            }
+        recursive(arr,arr.length);
+    }
+  
+    static void recursive(int arr[], int n){
+        if(n == 1) return;
+        
+          boolean b = false; 
+          
+        for(int start = 0 ; start <= n-2 ; start++){
+        if(arr[start] > arr[start + 1]){
+            int temp =arr[start];
+            arr[start] = arr[start+1];
+            arr[start+1]=temp;
+            b = true;
         }
+        
+    }
+    if(!b) return;
+        recursive(arr,n-1);
     }
 }
 
