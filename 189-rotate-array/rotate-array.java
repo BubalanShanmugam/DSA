@@ -1,23 +1,42 @@
 class Solution {
     public void rotate(int[] nums, int k) {
+        // // Copy the last k elements to the beginning
+        // for (int i = 0; i < k; i++) {
+        //     arr[i] = nums[n - k + i];
+        // }
+
+        // // Copy the first n-k elements after that
+        // for (int i = k; i < n; i++) {
+        //     arr[i] = nums[i - k];
+        // }
+
+        // // Copy back to original array
+        // for (int i = 0; i < n; i++) {
+        //     nums[i] = arr[i];
+        // }
+
+
         int n = nums.length;
-        k = k % n; // handle if k > n
+        k = k % n;
 
         int[] arr = new int[n];
-
-        // Copy the last k elements to the beginning
-        for (int i = 0; i < k; i++) {
-            arr[i] = nums[n - k + i];
+        int j =0;
+        for (int i = n - k; i < n ; i++) {
+            arr[j] = nums[i];
+            j++;
         }
 
-        // Copy the first n-k elements after that
-        for (int i = k; i < n; i++) {
-            arr[i] = nums[i - k];
+        int l = 0;
+        for (int a = n-k-1; a >= 0; a--) {
+            nums[n - 1 - l] = nums[a];
+            l++;
         }
-
-        // Copy back to original array
-        for (int i = 0; i < n; i++) {
-            nums[i] = arr[i];
+       
+       
+        int z=0;
+        for(int i =0; i<k;i++){
+            nums[z] = arr[i];
+            z++;
         }
     }
 }
