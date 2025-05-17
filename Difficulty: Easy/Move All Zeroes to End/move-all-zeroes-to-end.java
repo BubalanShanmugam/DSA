@@ -48,20 +48,63 @@ class Solution {
         //     arr[k]=array[k];
         // }
         
-        int [] array = new int[arr.length];
-        int j =0;
-        for(int i =0;i< arr.length;i++){
-            if(arr[i]!=0){
-                array[j]= arr[i];
-                j++;
+        
+        
+        
+        
+        
+        // int [] array = new int[arr.length];
+        // int j =0;
+        // for(int i =0;i< arr.length;i++){
+        //     if(arr[i]!=0){
+        //         array[j]= arr[i];
+        //         j++;
+        //     }
+        // }
+        // for(int k =0; k < array.length;k++){
+        //     arr[k]=array[k];
+        // }
+        
+        // for(int z = array.length; z < arr.length;z++){
+        //     arr[z]= 0;
+        // }
+        
+        
+        
+
+        // int n = arr.length;
+        // for(int i=0;i< n-1;i++){
+        //     if(arr[i]==0){
+        //     for(int j = i+1; j<n;j++) {
+        //         if (arr[j] > 0) {
+        //             int tmep = arr[i];
+        //             arr[i] = arr[j];
+        //             arr[j] = tmep;
+        //             break;
+        //         }
+        //     }
+        //     }
+        // }
+        
+        int n = arr.length;
+        int j =-1;
+        for(int i =0;i < n;i++){
+            if(arr[i]==0){
+                j=i;
+                break;
             }
         }
-        for(int k =0; k < array.length;k++){
-            arr[k]=array[k];
-        }
-        
-        for(int z = array.length; z < arr.length;z++){
-            arr[z]= 0;
+
+        if(j==-1) return ;
+
+        for(int i = j+1; i < n;i++){
+            if(arr[i]!=0){
+                int temp = arr[i];
+                arr[i]= arr[j];
+                arr[j]=temp;
+
+                j++;
+            }
         }
     }
 }
