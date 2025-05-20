@@ -51,30 +51,31 @@
 class Solution {
     public boolean isZeroArray(int[] nums, int[][] queries) {
         int n = nums.length;
-        int[] diff = new int[n + 1]; // +1 to handle end+1
+        int[] decrementOps = new int[n + 1];  // diff array
 
-        // Apply range updates using difference array
+        // Instead of looping over every element in the query range,
+        // we just mark the range in difference array
         for (int[] q : queries) {
             int start = q[0];
             int end = q[1];
-            diff[start]++;
+            decrementOps[start]++;
             if (end + 1 < n) {
-                diff[end + 1]--;
+                decrementOps[end + 1]--;
             }
         }
 
-        // Calculate prefix sum to get final decrement count per index
-        int[] decrements = new int[n];
-        decrements[0] = diff[0];
-        for (int i = 1; i < n; i++) {
-            decrements[i] = decrements[i - 1] + diff[i];
-        }
-
-        // Check if each element can be reduced to 0
+        // Accumulate the difference array to get total decrement for each index
+        int[] finalArray = Arrays.copyOf(nums, n);
+        int applied = 0;
         for (int i = 0; i < n; i++) {
-            if (nums[i] > decrements[i]) {
-                return false;
-            }
+            applied += decrementOps[i];
+            // Simulate your logic: only subtract from non-zero
+            finalArray[i] = Math.max(finalArray[i] - applied, 0);
+        }
+
+        // Final check
+        for (int num : finalArray) {
+            if (num != 0) return false;
         }
         return true;
     }
