@@ -22,13 +22,16 @@ class Solution {
         //         }
         //     }
         // }
+
+
         int[] result = {0,0};
         for (int i = 0; i < mat.length; i++){            
             int count=0;
             for(int index =0; index< mat[i].length;index++){
-                    count+=mat[i][index];
+                if(mat[i][index]==1)
+                    count+=1;
             }
-            
+
             if (count > result[1]){
                 result[0] = i;
                 result[1] = count;
