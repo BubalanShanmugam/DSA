@@ -56,23 +56,67 @@ class Geeks {
 //     }
 // }
 
-class Solution {
-    // Function to count the frequency of all elements from 1 to N in the array.
-    public List<Integer> frequencyCount(int[] arr) {
-        // do modify in the given array
+// class Solution {
+//     // Function to count the frequency of all elements from 1 to N in the array.
+//     public List<Integer> frequencyCount(int[] arr) {
+//         // do modify in the given array
         
-        List<Integer> freq=new ArrayList<>();
+//         List<Integer> freq=new ArrayList<>();
         
-        for(int v=0;v<arr.length;v++){
-            freq.add(0);
-        }
+//         for(int v=0;v<arr.length;v++){
+//             freq.add(0);
+//         }
         
-        for(int v=0;v<arr.length;v++){
-            freq.set(arr[v]-1,freq.get(arr[v]-1)+1);
-        }
-        return freq;
-    }
+//         for(int v=0;v<arr.length;v++){
+//             freq.set(arr[v]-1,freq.get(arr[v]-1)+1);
+//         }
+//         return freq;
+//     }
+//
+
+import java.util.stream.*;
+
+class Solution{
+      public List<Integer> frequencyCount(int[] arr) {
+            
+            int[] list = new int[arr.length];
+            
+            for(int i=0; i< arr.length;i++){
+                list[ arr[i]-1 ] = list[ arr[i]-1 ] +1;
+                // list.set(arr[i]-1, list.get(arr[i]-1)+1);
+            }
+            
+            return  Arrays.stream(list).boxed().collect(Collectors.toList());
+      }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
