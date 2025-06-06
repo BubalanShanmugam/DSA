@@ -27,15 +27,13 @@ class GFG {
 
 
 class Solution {
-    static int sum =0;
+ 
     public static int seriesSum(int n) {
         // code here
         if(n==0){
-            return sum;
-           
+            return 0;
         }
         return n+(seriesSum(n-1));
-     
     }
      
     
