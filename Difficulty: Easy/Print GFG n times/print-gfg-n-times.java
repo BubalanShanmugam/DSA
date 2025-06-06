@@ -23,11 +23,11 @@ System.out.println("~");
 
 class Solution {
 
-    void printGfg(int N) {
+    void printGfg(int n) {
         // code here
-        while(N!=0){
+        if(n==0) return;
+        
             System.out.print("GFG ");
-            N--;
-        }
+            printGfg(n-1);
     }
 }
