@@ -14,16 +14,34 @@ class Solution {
     //             return i;
     //         }
     //     }
-        int[] array = new int[arr.length];
+
+
+    // ----------------------------------------
+
+
+        // int[] array = new int[arr.length];
+        // int j =0;
+        // for(int i = 0; i < arr.length;i++){
+        //     if(arr[i]!=0){
+        //         array[j]= arr[i];
+        //         j++;
+        //     }
+        // }
+        // for(int i =0;i< arr.length;i++){
+        //         arr[i]=array[i];
+        // }  
+
+        // ----------------------------------
+
         int j =0;
-        for(int i = 0; i < arr.length;i++){
+        for(int i =0; i< arr.length;i++){
             if(arr[i]!=0){
-                array[j]= arr[i];
+                if(j !=i){
+                    arr[j]=arr[i];
+                    arr[i]=0;
+                }
                 j++;
             }
-        }
-        for(int i =0;i< arr.length;i++){
-                arr[i]=array[i];
-        }    
+        }  
     }
 }
