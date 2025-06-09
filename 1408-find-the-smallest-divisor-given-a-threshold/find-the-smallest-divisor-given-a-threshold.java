@@ -14,7 +14,7 @@ class Solution {
             int mid = low + (high - low) / 2;
             int sum = 0;
             for (int num : nums) {
-                sum += (num + mid - 1) / mid;
+                sum += (num + mid - 1)/mid;  //sum += Math.ceil((double)num / (double)mid);
                 if (sum > threshold) {
                     break;
                 }
