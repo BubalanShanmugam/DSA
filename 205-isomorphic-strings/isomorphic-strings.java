@@ -1,5 +1,6 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
+        if(s.length() != t.length()) return false;
         int m1[] = new int[256];
         int m2[] = new int[256];
         int n = s.length();
@@ -10,7 +11,7 @@ class Solution {
         }
         return true;
     }
-    //     if(s.length() != t.length()) return false;
+    //     
 
     //     HashSet<String> set1 = new HashSet<>();
     //     HashSet<String> set2 = new HashSet<>();
