@@ -14,6 +14,6 @@ class Solution {
                 }  
                 list.add(sublist);                  
             }
-            return list;
+        return list;
     }
 }
