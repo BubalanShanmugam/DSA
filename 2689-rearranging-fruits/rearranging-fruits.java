@@ -1,7 +1,7 @@
 class Solution {
 
     public long minCost(int[] basket1, int[] basket2) {
-        TreeMap<Integer, Integer> freq = new TreeMap<>();
+        HashMap<Integer, Integer> freq = new HashMap<>();
         int m = Integer.MAX_VALUE;
         for (int b1 : basket1) {
             freq.put(b1, freq.getOrDefault(b1, 0) + 1);
