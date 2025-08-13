@@ -1,13 +1,21 @@
 class Solution {
     public boolean isPowerOfThree(int n) {
-        if(n==1 ){
-            return true;
-        }
-        else if( n==0){
-            return false;
-        }
+        if(n<=0) return false;
 
-        return n%3==0 && isPowerOfThree(n/3);
+        while(n%3==0){
+            n /= 3;
+        }
+        return n==1;
 
+        // int pow =0;
+        // int ans =0;
+        // while(ans<n){
+        //     ans = (int) Math.pow(3,pow);
+        //     pow++;
+        // }
+        // return ans == n;
+
+
+    
     }
 }
