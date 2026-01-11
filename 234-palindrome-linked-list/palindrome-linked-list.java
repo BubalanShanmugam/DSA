@@ -10,37 +10,46 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if(head == null || head.next == null) return true;
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast.next != null && fast.next.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
+            if(head == null || head.next == null) return true;
+            ListNode slow = head;
+            ListNode fast = head;
 
-        ListNode newNode = reverse(slow.next);
-        ListNode second = newNode;
-        ListNode first = head;
-        while(second != null){
-            if(first.val != second.val){
-                reverse(newNode);
-                return false;
+            while (fast.next != null && fast.next.next !=null){
+                slow = slow.next;
+                fast = fast.next.next;
             }
-            first = first.next;
-            second = second.next;
-        }
 
-        reverse(newNode);
-        return true;
+            ListNode newnode = reverseLL(slow.next);
+            ListNode first = head;
+            ListNode second = newnode;
+                  
+            while(second !=null){
+                if(first.val != second.val){
+                    reverseLL(newnode);
+                    return false;
+                }
+                first= first.next;
+                second = second.next;
+            }
+            reverseLL(newnode);
+            return true;
     }
 
-    public static ListNode reverse(ListNode head){
-        if(head.next == null || head == null) return head;
+    public static ListNode reverseLL(ListNode head){
+        if(head==null || head.next ==null){
+            return head;
+        }
 
-        ListNode newNode = reverse(head.next);
-        ListNode front = head.next;
-        front.next = head;
-        head.next = null;
-        return newNode;
+        ListNode temp = head;
+        ListNode prev = null;
+        ListNode front = null;
+
+        while(temp != null){
+            front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+        return prev;
     }
 }
